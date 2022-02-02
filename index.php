@@ -12,6 +12,24 @@ if ( isset($_POST["submit"])) {
 
     $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $hasil = mysqli_query($conn,$sql);
+    
+    if ( $hasil -> num_rows > 0 ) {
+        
+        $row = mysqli_fetch_assoc($hasil);
+        
+        if ($row["level"] == 1) {
+            header("location: admin/index.php");
+        }elseif ($row["level"] == 2) {
+            header("Location: guru/index.php");
+        }else {
+            header("location: siswa/index.php");
+        }
+    }else {
+        echo "<script>
+                    alert('login gagal');
+              </script>";
+    }
+}
 
     
 <!DOCTYPE html>
