@@ -3,6 +3,16 @@ require 'functions.php';
 
 if ( isset($_POST["submit"])) {
     
+    if ( regis($_POST) > 0) {
+        header("Location: index.php");
+    }else{
+        echo "<script>
+                alert('Login gagal!!!');
+              </script>";
+    }
+}
+
+?>   
 
 
 <!DOCTYPE html>
