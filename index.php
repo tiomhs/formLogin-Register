@@ -1,3 +1,19 @@
+<?php
+
+require "functions.php";
+
+$conn = mysqli_connect("localhost","root","","webtio");
+
+if ( isset($_POST["submit"])) {
+    
+    // tangkap dulu
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $hasil = mysqli_query($conn,$sql);
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
